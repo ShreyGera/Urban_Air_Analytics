@@ -58,21 +58,25 @@ Urban_Air_Analytics/
 
 ## AQI Calculation Methodology
 
-The **Air Quality Index (AQI)** is calculated using pollutant concentration breakpoints defined by CPCB.
-Each pollutant’s sub-index is calculated using linear interpolation:
+AQI Calculation Methodology
 
-[
+The Air Quality Index (AQI) is calculated using pollutant concentration breakpoints defined by the Central Pollution Control Board (CPCB, India).
+Each pollutant’s sub-index is calculated using linear interpolation as follows:
+
+```math
 I_p = \frac{(I_{HI} - I_{LO})}{(BP_{HI} - BP_{LO})} \times (C_p - BP_{LO}) + I_{LO}
-]
-
+```
 Where:
 
-* ( I_p ): AQI sub-index for pollutant ( p )
-* ( C_p ): Observed pollutant concentration
-* ( BP_{HI}, BP_{LO} ): Upper and lower breakpoint concentrations
-* ( I_{HI}, I_{LO} ): AQI range corresponding to those breakpoints
+```math
+\text{Where:} \\
+I_p = \text{AQI sub-index for pollutant } p \\
+C_p = \text{Observed pollutant concentration} \\
+BP_{HI}, BP_{LO} = \text{Upper and lower breakpoint concentrations for the pollutant} \\
+I_{HI}, I_{LO} = \text{AQI index range corresponding to those breakpoints}
+```
 
-The **Overall AQI** is the maximum sub-index across pollutants.
+The overall AQI for a monitoring station is taken as the **maximum** of the sub-indices of all pollutants measured at that location.
 
 ---
 
